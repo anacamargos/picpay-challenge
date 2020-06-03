@@ -1,4 +1,4 @@
-# Picpay Challenge App
+# PicPay Challenge App
 
 It consists of developing a native iOS app implemented in Swift. It is a simulation of sending money to another person via credit card.
 
