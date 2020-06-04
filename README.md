@@ -57,3 +57,79 @@ Given the customer doesn't have connectivity
  When the customer requests to see the contact list
  Then the app should display an error message
 ```
+
+## Use Cases
+
+### Load Contact List From Remote Use Case
+
+#### Data:
+- URL
+
+#### Primary course (happy path):
+1. Execute "Load Contact List" command with above data.
+2. System downloads data from the URL.
+3. System validates downloaded data.
+4. System creates contact list from valid data.
+5. System delivers contact list.
+
+#### Invalid data – error course (sad path):
+1. System delivers invalid data error.
+
+#### No connectivity – error course (sad path):
+1. System delivers connectivity error.
+
+---
+
+### Load Contact List From Cache Use Case
+
+#### Primary course:
+1. Execute "Load Contact List" command with above data.
+2. System retrieves contact list data from cache.
+3. System validates cache is less than seven days old.
+4. System creates contact list from cached data.
+5. System delivers contact list.
+
+#### Retrieval error course (sad path):
+1. System delivers error.
+
+#### Expired cache course (sad path): 
+1. System delivers no contact list.
+
+#### Empty cache course (sad path): 
+1. System delivers no contact list.
+
+---
+
+### Cache Contact List Use Case
+
+#### Data:
+- Contact List
+
+#### Primary course (happy path):
+1. Execute "Save Contact List" command with above data.
+2. System deletes old cache data.
+3. System encodes contact list.
+4. System timestamps the new cache.
+5. System saves new cache data.
+6. System delivers success message.
+
+#### Deleting error course (sad path):
+1. System delivers error.
+
+#### Saving error course (sad path):
+1. System delivers error.
+
+---
+
+### Validate Contact List Cache Use Case
+
+#### Primary course:
+1. Execute "Validate Cache" command with above data.
+2. System retrieves contact list data from cache.
+3. System validates cache is less than seven days old.
+
+#### Retrieval error course (sad path):
+1. System deletes cache.
+
+#### Expired cache course (sad path): 
+1. System deletes cache.
