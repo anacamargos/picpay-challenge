@@ -138,4 +138,3 @@ Given the customer doesn't have connectivity
 
 ## Flowchart
 
-![Contact List Loading Feature](contact_list_flowchart.png)
