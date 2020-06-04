@@ -133,3 +133,9 @@ Given the customer doesn't have connectivity
 
 #### Expired cache course (sad path): 
 1. System deletes cache.
+
+---
+
+## Flowchart
+
+![Contact List Loading Feature](contact_list_flowchart.png)
