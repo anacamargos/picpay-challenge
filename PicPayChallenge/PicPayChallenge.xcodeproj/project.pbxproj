@@ -10,6 +10,7 @@
 		BFD9187C248A75ED003EFD74 /* PicPayChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD91872248A75EC003EFD74 /* PicPayChallenge.framework */; };
 		BFD91881248A75ED003EFD74 /* PicPayChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD91880248A75ED003EFD74 /* PicPayChallengeTests.swift */; };
 		BFD91883248A75ED003EFD74 /* PicPayChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD91875248A75EC003EFD74 /* PicPayChallenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188C248A7720003EFD74 /* ContactData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		BFD9187B248A75ED003EFD74 /* PicPayChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPayChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD91880248A75ED003EFD74 /* PicPayChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPayChallengeTests.swift; sourceTree = "<group>"; };
 		BFD91882248A75ED003EFD74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFD9188C248A7720003EFD74 /* ContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				BFD91875248A75EC003EFD74 /* PicPayChallenge.h */,
 				BFD91876248A75EC003EFD74 /* Info.plist */,
+				BFD9188C248A7720003EFD74 /* ContactData.swift */,
 			);
 			path = PicPayChallenge;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					BFD91871248A75EC003EFD74 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 					};
 					BFD9187A248A75ED003EFD74 = {
 						CreatedOnToolsVersion = 11.5;
@@ -195,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +344,7 @@
 		BFD91887248A75ED003EFD74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -356,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ana.PicPayChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +370,7 @@
 		BFD91888248A75ED003EFD74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -387,6 +395,7 @@
 		BFD9188A248A75ED003EFD74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZR4HDJL2Y8;
@@ -405,6 +414,7 @@
 		BFD9188B248A75ED003EFD74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZR4HDJL2Y8;
