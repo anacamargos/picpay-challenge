@@ -8,6 +8,13 @@ Cards must be persisted in the app to be used for future payments.
 
 # Contact List Feature
 
+- [BDD Specs](#bdd-specs)
+- [Use Cases](#use-cases)
+- [Flowchart](#flowchart)
+- [Architecture](#architecture)
+- [Model Specs](#model-specs)
+
+
 ## BDD Specs
 
 ### Story: Customer requests to see their contact list
@@ -139,3 +146,10 @@ Given the customer doesn't have connectivity
 ## Flowchart
 
 ![Contact List Loading Feature](ContactList_flowchart.png)
+
+
+## Architecture
+
+
+
+## Model Specs
