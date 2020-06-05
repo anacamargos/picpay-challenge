@@ -154,3 +154,42 @@ Given the customer doesn't have connectivity
 
 
 ## Model Specs
+
+### Contact Data
+
+| Property      | Type                |
+|---------------|---------------------|
+| `id`          | `Int`               |
+| `name`        | `String`            |
+| `imageURL`    | `URL`               |
+| `username`	  | `String`            |
+
+### Payload contract
+
+```
+GET *url* (TBD)
+
+200 RESPONSE
+
+[
+   {
+      "id": 1001,
+      "name": "Eduardo Santos",
+      "img": "https://randomuser.me/api/portraits/men/9.jpg",
+      "username": "@eduardo.santos"
+   },
+   {
+      "id": 1002,
+      "name": "Marina Coelho",
+      "img": "https://randomuser.me/api/portraits/women/37.jpg",
+      "username": "@marina.coelho"
+   },
+   {
+      "id": 1003,
+      "name": "Márcia da Silva",
+      "img": "https://randomuser.me/api/portraits/women/57.jpg",
+      "username": "@marcia.silva"
+   }
+   ...
+]
+```
