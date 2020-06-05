@@ -11,7 +11,7 @@
 		BFD91881248A75ED003EFD74 /* PicPayChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD91880248A75ED003EFD74 /* PicPayChallengeTests.swift */; };
 		BFD91883248A75ED003EFD74 /* PicPayChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD91875248A75EC003EFD74 /* PicPayChallenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188C248A7720003EFD74 /* ContactData.swift */; };
-		BFD9188F248A781F003EFD74 /* ContactLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188E248A781F003EFD74 /* ContactLoader.swift */; };
+		BFD9188F248A781F003EFD74 /* ContactListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188E248A781F003EFD74 /* ContactListLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,7 @@
 		BFD91880248A75ED003EFD74 /* PicPayChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPayChallengeTests.swift; sourceTree = "<group>"; };
 		BFD91882248A75ED003EFD74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD9188C248A7720003EFD74 /* ContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
-		BFD9188E248A781F003EFD74 /* ContactLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactLoader.swift; sourceTree = "<group>"; };
+		BFD9188E248A781F003EFD74 /* ContactListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +77,7 @@
 			children = (
 				BFD91875248A75EC003EFD74 /* PicPayChallenge.h */,
 				BFD91876248A75EC003EFD74 /* Info.plist */,
-				BFD9188C248A7720003EFD74 /* ContactData.swift */,
-				BFD9188E248A781F003EFD74 /* ContactLoader.swift */,
+				BFD91890248A7937003EFD74 /* ContactListFeature */,
 			);
 			path = PicPayChallenge;
 			sourceTree = "<group>";
@@ -90,6 +89,15 @@
 				BFD91882248A75ED003EFD74 /* Info.plist */,
 			);
 			path = PicPayChallengeTests;
+			sourceTree = "<group>";
+		};
+		BFD91890248A7937003EFD74 /* ContactListFeature */ = {
+			isa = PBXGroup;
+			children = (
+				BFD9188C248A7720003EFD74 /* ContactData.swift */,
+				BFD9188E248A781F003EFD74 /* ContactListLoader.swift */,
+			);
+			path = ContactListFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */,
-				BFD9188F248A781F003EFD74 /* ContactLoader.swift in Sources */,
+				BFD9188F248A781F003EFD74 /* ContactListLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

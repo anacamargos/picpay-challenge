@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ContactLoader {
+protocol ContactListLoader {
     func load(completion: @escaping (Result<[ContactData], Error>) -> Void)
 }
