@@ -150,6 +150,7 @@ Given the customer doesn't have connectivity
 
 ## Architecture
 
+![Contact List Architecture](contact_list_architecture.png)
 
 
 ## Model Specs
