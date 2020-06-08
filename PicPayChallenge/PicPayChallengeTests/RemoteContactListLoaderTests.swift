@@ -11,13 +11,15 @@ import XCTest
 final class RemoteContactListLoader {
     
     private let client: HTTPClient
+    private let url: URL
     
-    init(client: HTTPClient) {
+    init(client: HTTPClient, url: URL) {
         self.client = client
+        self.url = url
     }
     
     func load() {
-        client.get(from: URL(string: "https://www.a-url.com.br")!)
+        client.get(from: url)
     }
 }
 
@@ -36,17 +38,19 @@ final class HTTPClientSpy: HTTPClient {
 final class RemoteContactListLoaderTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
+        let url = URL(string: "https://a-given-url.com")!
         let client = HTTPClientSpy()
-        _ = RemoteContactListLoader(client: client)
+        _ = RemoteContactListLoader(client: client, url: url)
         XCTAssertNil(client.requestedURL)
     }
     
     func test_load_requestDataFromURL() {
+        let url = URL(string: "https://a-given-url.com")!
         let client = HTTPClientSpy()
-        let sut = RemoteContactListLoader(client: client)
+        let sut = RemoteContactListLoader(client: client, url: url)
         
         sut.load()
         
-        XCTAssertNotNil(client.requestedURL)
+        XCTAssertEqual(client.requestedURL, url)
     }
 }
