@@ -12,6 +12,7 @@
 		BFD91883248A75ED003EFD74 /* PicPayChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = BFD91875248A75EC003EFD74 /* PicPayChallenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188C248A7720003EFD74 /* ContactData.swift */; };
 		BFD9188F248A781F003EFD74 /* ContactListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188E248A781F003EFD74 /* ContactListLoader.swift */; };
+		BFD91892248E5880003EFD74 /* RemoteContactListLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD91891248E5880003EFD74 /* RemoteContactListLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		BFD91882248A75ED003EFD74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFD9188C248A7720003EFD74 /* ContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
 		BFD9188E248A781F003EFD74 /* ContactListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListLoader.swift; sourceTree = "<group>"; };
+		BFD91891248E5880003EFD74 /* RemoteContactListLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteContactListLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			children = (
 				BFD91880248A75ED003EFD74 /* PicPayChallengeTests.swift */,
 				BFD91882248A75ED003EFD74 /* Info.plist */,
+				BFD91891248E5880003EFD74 /* RemoteContactListLoaderTests.swift */,
 			);
 			path = PicPayChallengeTests;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD91881248A75ED003EFD74 /* PicPayChallengeTests.swift in Sources */,
+				BFD91892248E5880003EFD74 /* RemoteContactListLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
