@@ -11,6 +11,7 @@
 		BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188C248A7720003EFD74 /* ContactData.swift */; };
 		BFD9188F248A781F003EFD74 /* ContactListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD9188E248A781F003EFD74 /* ContactListLoader.swift */; };
 		BFD91892248E5880003EFD74 /* RemoteContactListLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD91891248E5880003EFD74 /* RemoteContactListLoaderTests.swift */; };
+		BFD91895248FAE7E003EFD74 /* RemoteContactListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD91894248FAE7E003EFD74 /* RemoteContactListLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		BFD9188C248A7720003EFD74 /* ContactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactData.swift; sourceTree = "<group>"; };
 		BFD9188E248A781F003EFD74 /* ContactListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListLoader.swift; sourceTree = "<group>"; };
 		BFD91891248E5880003EFD74 /* RemoteContactListLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteContactListLoaderTests.swift; sourceTree = "<group>"; };
+		BFD91894248FAE7E003EFD74 /* RemoteContactListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteContactListLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		BFD91874248A75EC003EFD74 /* PicPayChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				BFD91893248FAE62003EFD74 /* ContactListAPI */,
 				BFD91876248A75EC003EFD74 /* Info.plist */,
 				BFD91890248A7937003EFD74 /* ContactListFeature */,
 			);
@@ -95,6 +98,14 @@
 				BFD9188E248A781F003EFD74 /* ContactListLoader.swift */,
 			);
 			path = ContactListFeature;
+			sourceTree = "<group>";
+		};
+		BFD91893248FAE62003EFD74 /* ContactListAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BFD91894248FAE7E003EFD74 /* RemoteContactListLoader.swift */,
+			);
+			path = ContactListAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD9188D248A7720003EFD74 /* ContactData.swift in Sources */,
+				BFD91895248FAE7E003EFD74 /* RemoteContactListLoader.swift in Sources */,
 				BFD9188F248A781F003EFD74 /* ContactListLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

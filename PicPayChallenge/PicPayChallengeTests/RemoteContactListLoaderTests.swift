@@ -7,25 +7,7 @@
 //
 
 import XCTest
-
-final class RemoteContactListLoader {
-    
-    private let client: HTTPClient
-    private let url: URL
-    
-    init(client: HTTPClient, url: URL) {
-        self.client = client
-        self.url = url
-    }
-    
-    func load() {
-        client.get(from: url)
-    }
-}
-
-protocol HTTPClient {
-    func get(from url: URL)
-}
+import PicPayChallenge
 
 final class RemoteContactListLoaderTests: XCTestCase {
 
