@@ -27,30 +27,37 @@ protocol HTTPClient {
     func get(from url: URL)
 }
 
-final class HTTPClientSpy: HTTPClient {
-    var requestedURL: URL?
-    
-    func get(from url: URL) {
-        requestedURL = url
-    }
-}
-
 final class RemoteContactListLoaderTests: XCTestCase {
 
     func test_init_doesNotRequestDataFromURL() {
-        let url = URL(string: "https://a-given-url.com")!
-        let client = HTTPClientSpy()
-        _ = RemoteContactListLoader(client: client, url: url)
+        let (_, client) = makeSUT()
         XCTAssertNil(client.requestedURL)
     }
     
     func test_load_requestDataFromURL() {
         let url = URL(string: "https://a-given-url.com")!
-        let client = HTTPClientSpy()
-        let sut = RemoteContactListLoader(client: client, url: url)
+        let (sut, client) = makeSUT(url: url)
         
         sut.load()
         
         XCTAssertEqual(client.requestedURL, url)
+    }
+    
+    // MARK: - Test Helpers
+    
+    private func makeSUT(
+        url: URL = URL(string: "https://a-given-url.com")!
+    ) -> (sut: RemoteContactListLoader, client: HTTPClientSpy) {
+        let client = HTTPClientSpy()
+        let sut = RemoteContactListLoader(client: client, url: url)
+        return (sut, client)
+    }
+}
+
+final class HTTPClientSpy: HTTPClient {
+    var requestedURL: URL?
+    
+    func get(from url: URL) {
+        requestedURL = url
     }
 }
