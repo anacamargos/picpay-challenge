@@ -39,12 +39,10 @@ final class RemoteContactListLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         client.error = NSError(domain: "Test", code: 0)
         
-        var capturedError: RemoteContactListLoader.Error?
-        sut.load { error in
-            capturedError = error
-        }
+        var capturedErrors = [RemoteContactListLoader.Error]()
+        sut.load { capturedErrors.append($0) }
         
-        XCTAssertEqual(capturedError, .connectivity)
+        XCTAssertEqual(capturedErrors, [.connectivity])
     }
     
     // MARK: - Test Helpers
