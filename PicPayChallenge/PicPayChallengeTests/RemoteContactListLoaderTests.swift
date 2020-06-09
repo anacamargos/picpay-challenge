@@ -42,7 +42,7 @@ final class RemoteContactListLoaderTests: XCTestCase {
         sut.load { capturedErrors.append($0) }
         
         let clientError = NSError(domain: "Test", code: 0)
-        client.completions[0](clientError)
+        client.complete(with: clientError)
         
         XCTAssertEqual(capturedErrors, [.connectivity])
     }
@@ -66,5 +66,11 @@ final class HTTPClientSpy: HTTPClient {
     func get(from url: URL, completion: @escaping (Error) -> Void) {
         requestedURLs.append(url)
         completions.append(completion)
+    }
+    
+    // MARK: - Helper Methods
+    
+    func complete(with error: Error, at index: Int = 0) {
+        completions[index](error)
     }
 }
