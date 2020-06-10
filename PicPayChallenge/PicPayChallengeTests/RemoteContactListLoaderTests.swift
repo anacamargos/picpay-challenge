@@ -74,20 +74,20 @@ final class RemoteContactListLoaderTests: XCTestCase {
 
 final class HTTPClientSpy: HTTPClient {
     
-    private var messages = [(url: URL, completion: (Error?, HTTPURLResponse?) -> Void)]()
+    private var messages = [(url: URL, completion: (Result<HTTPURLResponse, Error>) -> Void)]()
     
     var requestedURLs: [URL] {
         messages.map { $0.url }
     }
     
-    func get(from url: URL, completion: @escaping (Error?, HTTPURLResponse?) -> Void) {
+    func get(from url: URL, completion: @escaping (Result<HTTPURLResponse, Error>) -> Void) {
         messages.append((url, completion))
     }
     
     // MARK: - Helper Methods
     
     func complete(with error: Error, at index: Int = 0) {
-        messages[index].completion(error, nil)
+        messages[index].completion(.failure(error))
     }
     
     func complete(withStatusCode code: Int, at index: Int = 0) {
@@ -96,7 +96,7 @@ final class HTTPClientSpy: HTTPClient {
             statusCode: code,
             httpVersion: nil,
             headerFields: nil
-        )
-        messages[index].completion(nil, response)
+        )!
+        messages[index].completion(.success(response))
     }
 }
