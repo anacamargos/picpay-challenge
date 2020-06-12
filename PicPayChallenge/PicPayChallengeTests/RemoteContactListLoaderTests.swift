@@ -73,6 +73,47 @@ final class RemoteContactListLoaderTests: XCTestCase {
         }
     }
     
+    func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+        
+        let item1 = ContactData(
+            id: 0,
+            name: "Ana",
+            imageURL: URL(string: "http://a-url.com")!,
+            username: "ana"
+        )
+        
+        let item1JSON = [
+            "id": item1.id,
+            "name": item1.name,
+            "img": item1.imageURL.absoluteString,
+            "username": item1.username
+            ] as [String : Any]
+        
+        let item2 = ContactData(
+            id: 1,
+            name: "Oi",
+            imageURL: URL(string: "http://another-url.com")!,
+            username: "oi"
+        )
+        
+        let item2JSON = [
+            "id": item2.id,
+            "name": item2.name,
+            "img": item2.imageURL.absoluteString,
+            "username": item2.username
+            ] as [String : Any]
+        
+        let itemsJSON = [
+            item1JSON, item2JSON
+        ]
+        
+        expect(sut, toCompleteWith: .success([item1, item2])) {
+            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+            client.complete(withStatusCode: 200, data: json)
+        }
+    }
+    
     // MARK: - Test Helpers
     
     private func makeSUT(
