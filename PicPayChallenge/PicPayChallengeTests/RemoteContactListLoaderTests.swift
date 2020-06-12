@@ -76,40 +76,22 @@ final class RemoteContactListLoaderTests: XCTestCase {
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
         let (sut, client) = makeSUT()
         
-        let item1 = ContactData(
+        let item1 = makeItem(
             id: 0,
             name: "Ana",
             imageURL: URL(string: "http://a-url.com")!,
             username: "ana"
         )
-        
-        let item1JSON = [
-            "id": item1.id,
-            "name": item1.name,
-            "img": item1.imageURL.absoluteString,
-            "username": item1.username
-            ] as [String : Any]
-        
-        let item2 = ContactData(
+        let item2 = makeItem(
             id: 1,
             name: "Oi",
             imageURL: URL(string: "http://another-url.com")!,
             username: "oi"
         )
+        let items = [item1.model, item2.model]
         
-        let item2JSON = [
-            "id": item2.id,
-            "name": item2.name,
-            "img": item2.imageURL.absoluteString,
-            "username": item2.username
-            ] as [String : Any]
-        
-        let itemsJSON = [
-            item1JSON, item2JSON
-        ]
-        
-        expect(sut, toCompleteWith: .success([item1, item2])) {
-            let json = try! JSONSerialization.data(withJSONObject: itemsJSON)
+        expect(sut, toCompleteWith: .success(items)) {
+            let json = makeItemJSON([item1.json, item2.json])
             client.complete(withStatusCode: 200, data: json)
         }
     }
@@ -122,6 +104,21 @@ final class RemoteContactListLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteContactListLoader(client: client, url: url)
         return (sut, client)
+    }
+    
+    private func makeItem(id: Int, name: String, imageURL: URL, username: String) -> (model: ContactData, json: [String: Any]) {
+        let item = ContactData(id: id, name: name, imageURL: imageURL, username: username)
+        let json: [String: Any] = [
+            "id": item.id,
+            "name": item.name,
+            "img": item.imageURL.absoluteString,
+            "username": item.username
+        ]
+        return (item, json)
+    }
+    
+    private func makeItemJSON(_ items: [[String: Any]]) -> Data {
+        return try! JSONSerialization.data(withJSONObject: items)
     }
     
     private func expect(
