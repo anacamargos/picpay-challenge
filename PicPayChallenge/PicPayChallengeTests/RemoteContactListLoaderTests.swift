@@ -69,7 +69,7 @@ final class RemoteContactListLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: .success([])) {
-            let emptyListJSON = Data("[]".utf8)
+            let emptyListJSON = makeItemJSON([])
             client.complete(withStatusCode: 200, data: emptyListJSON)
         }
     }
