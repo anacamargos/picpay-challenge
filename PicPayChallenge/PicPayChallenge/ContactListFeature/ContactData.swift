@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ContactData {
+public struct ContactData: Equatable {
     let id: Int
     let name: String
     let imageURL: URL

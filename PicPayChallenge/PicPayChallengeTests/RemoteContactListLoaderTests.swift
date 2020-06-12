@@ -53,7 +53,6 @@ final class RemoteContactListLoaderTests: XCTestCase {
                 client.complete(withStatusCode: code, at: index)
             }
         }
-        
     }
     
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
@@ -82,10 +81,10 @@ final class RemoteContactListLoaderTests: XCTestCase {
         line: UInt = #line,
         when action: () -> Void
     ) {
-        var capturedErrors = [RemoteContactListLoader.Error]()
-        sut.load { capturedErrors.append($0) }
+        var capturedResults = [Result<[ContactData], RemoteContactListLoader.Error>]()
+        sut.load { capturedResults.append($0) }
         action()
-        XCTAssertEqual(capturedErrors, [error], file: file, line: line)
+        XCTAssertEqual(capturedResults, [.failure(error)], file: file, line: line)
     }
 }
 
