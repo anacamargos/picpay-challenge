@@ -64,6 +64,18 @@ final class RemoteContactListLoaderTests: XCTestCase {
         }
     }
     
+    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
+        let (sut, client) = makeSUT()
+        
+        var capturedResults = [Result<[ContactData], RemoteContactListLoader.Error>]()
+        sut.load { capturedResults.append($0) }
+        
+        let emptyListJSON = Data("[]".utf8)
+        client.complete(withStatusCode: 200, data: emptyListJSON)
+        
+        XCTAssertEqual(capturedResults, [.success([])])
+    }
+    
     // MARK: - Test Helpers
     
     private func makeSUT(
