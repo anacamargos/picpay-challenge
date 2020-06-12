@@ -21,12 +21,3 @@ public struct ContactData: Equatable {
         self.username = username
     }
 }
-
-extension ContactData: Decodable {
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case imageURL = "img"
-        case username
-    }
-}

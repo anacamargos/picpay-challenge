@@ -39,8 +39,8 @@ public final class RemoteContactListLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, response)):
-                if response.statusCode == 200, let root = try? JSONDecoder().decode([ContactData].self, from: data) {
-                    completion(.success(root))
+                if response.statusCode == 200, let root = try? JSONDecoder().decode([ContactItem].self, from: data) {
+                    completion(.success(root.map { $0.data }))
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -48,5 +48,16 @@ public final class RemoteContactListLoader {
                 completion(.failure(.connectivity))
             }
         }
+    }
+}
+
+private struct ContactItem: Decodable {
+    let id: Int
+    let name: String
+    let img: URL
+    let username: String
+    
+    var data: ContactData {
+        ContactData(id: id, name: name, imageURL: img, username: username)
     }
 }
