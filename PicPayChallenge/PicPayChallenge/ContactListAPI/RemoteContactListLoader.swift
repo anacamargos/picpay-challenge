@@ -38,8 +38,8 @@ public final class RemoteContactListLoader {
     public func load(completion: @escaping (Result<[ContactData], Error>) -> Void) {
         client.get(from: url) { result in
             switch result {
-            case let .success(data, _):
-                if let root = try? JSONDecoder().decode([ContactData].self, from: data) {
+            case let .success((data, response)):
+                if response.statusCode == 200, let root = try? JSONDecoder().decode([ContactData].self, from: data) {
                     completion(.success(root))
                 } else {
                     completion(.failure(.invalidData))
