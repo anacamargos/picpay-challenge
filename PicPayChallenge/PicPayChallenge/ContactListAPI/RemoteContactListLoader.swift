@@ -39,8 +39,8 @@ public final class RemoteContactListLoader {
         client.get(from: url) { result in
             switch result {
             case let .success((data, response)):
-                if response.statusCode == 200, let root = try? JSONDecoder().decode([ContactItem].self, from: data) {
-                    completion(.success(root.map { $0.data }))
+                if let items = try? ContactListMapper.map(data, response) {
+                    completion(.success(items))
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -51,13 +51,23 @@ public final class RemoteContactListLoader {
     }
 }
 
-private struct ContactItem: Decodable {
-    let id: Int
-    let name: String
-    let img: URL
-    let username: String
+final private class ContactListMapper {
     
-    var data: ContactData {
-        ContactData(id: id, name: name, imageURL: img, username: username)
+    private struct ContactItem: Decodable {
+        let id: Int
+        let name: String
+        let img: URL
+        let username: String
+        
+        var data: ContactData {
+            ContactData(id: id, name: name, imageURL: img, username: username)
+        }
+    }
+    
+    static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [ContactData] {
+        guard response.statusCode == 200 else {
+            throw RemoteContactListLoader.Error.invalidData
+        }
+        return try JSONDecoder().decode([ContactItem].self, from: data).map { $0.data }
     }
 }
